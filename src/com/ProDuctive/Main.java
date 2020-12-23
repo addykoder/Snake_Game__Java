@@ -2,7 +2,7 @@ package com.ProDuctive;
 
 public class Main {
 
-    Main(){
+    Main() {
         new Frame();
     }
 

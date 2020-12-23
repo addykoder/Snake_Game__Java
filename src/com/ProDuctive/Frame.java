@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Frame extends JFrame {
     // Variables
-    Dimension ScreenDimension = new Dimension(700,700);
+    Dimension ScreenDimension = new Dimension(600, 600);
 
     // best between 30 - 60;
     int UnitSize = 60;
@@ -16,10 +16,11 @@ public class Frame extends JFrame {
     // color of the body
     Color bodyColor = null;
 
+    // Game mode 0- For boundary collision disabled. 1- for boundary collision enabled.
+    int mode=0;
 
 
-
-    Frame(){
+    Frame() {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Snake");
@@ -32,7 +33,7 @@ public class Frame extends JFrame {
     }
 
     //just created to get the global variables of this class in the Panel class
-    Frame(int rndm){
+    Frame(int rndm) {
 
     }
 
