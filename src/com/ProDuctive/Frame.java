@@ -5,10 +5,10 @@ import java.awt.*;
 
 public class Frame extends JFrame {
     // Variables
-    Dimension ScreenDimension = new Dimension(600, 600);
+    Dimension ScreenDimension = new Dimension(1000, 1000);
 
     // best between 30 - 60;
-    int UnitSize = 60;
+    int UnitSize = 50;
 
     // best around half of the unit size variable
     int snkVelocity = 15;
