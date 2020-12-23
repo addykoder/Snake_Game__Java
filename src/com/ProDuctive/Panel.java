@@ -240,12 +240,17 @@ public class Panel extends JPanel implements KeyListener, ActionListener {
         g.drawString("Game Over", (scrX - metrics.stringWidth("Game Over")) / 2, scrY / 2);
     }
 
+    // reassign the main variables to restart the game;
+    public void restart(){
+        dispatchEvent(new WindowEvent(new Frame(), WindowEvent.WINDOW_CLOSING));
+    }
+
     //Input control
     public void keyPressed(KeyEvent e) {
 
+        // retrying the game if pressed the r key
         if(e.getKeyCode()==KeyEvent.VK_R){
-
-            dispatchEvent(new WindowEvent(new Frame(), WindowEvent.WINDOW_CLOSING));
+                restart();
         }
 
         //changing the directions

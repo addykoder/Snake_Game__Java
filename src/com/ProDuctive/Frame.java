@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 
-public class Frame extends JFrame implements KeyListener {
+public class Frame extends JFrame  {
     // Variables
     Dimension ScreenDimension = new Dimension(600, 600);
 
@@ -29,7 +29,6 @@ public class Frame extends JFrame implements KeyListener {
         setTitle("Snake");
         setResizable(false);
         setSize(ScreenDimension);
-        addKeyListener(this);
         this.add(new Panel());
 
         setVisible(true);
@@ -43,22 +42,5 @@ public class Frame extends JFrame implements KeyListener {
 
 
 
-    // closing and reopening the window if pressed the retry key
-    @Override
-    public void keyPressed(KeyEvent e) {
-        if(e.getKeyCode()==KeyEvent.VK_R){
-            new Frame();
-            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
-        }
 
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
-    @Override
-    public void keyTyped(KeyEvent e) {
-
-    }
 }
