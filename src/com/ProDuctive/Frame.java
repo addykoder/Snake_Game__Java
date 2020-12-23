@@ -7,14 +7,14 @@ public class Frame extends JFrame {
     // Variables
     Dimension ScreenDimension = new Dimension(1000, 1000);
 
-    // best between 30 - 60;
+    // must be a factor of the screen width and height otherwise it may lead to bugs
     int UnitSize = 50;
 
     // best around half of the unit size variable
     int snkVelocity = 15;
 
-    // color of the body
-    Color bodyColor = null;
+    // color of the body || multicolor if set to null
+    Color bodyColor =null;
 
     // Game mode 0- For boundary collision disabled. 1- for boundary collision enabled.
     int mode=0;

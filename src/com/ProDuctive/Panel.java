@@ -226,6 +226,15 @@ public class Panel extends JPanel implements KeyListener, ActionListener {
         return new Frame(5).bodyColor;
     }
 
+    // making a lighting effect by changing the colors every frame
+    public ArrayList<DimCol> chCol(ArrayList<DimCol> k){
+        ArrayList<DimCol> m = new ArrayList<>();
+        for (DimCol d:k){
+            m.add(new DimCol(d.d,rndColor()));
+        }
+        return m;
+    }
+
     //paint method after game over
     public void gameOver(Graphics g) {
         g.setColor(Color.red);
@@ -268,12 +277,12 @@ public class Panel extends JPanel implements KeyListener, ActionListener {
     //Main Control
     public void actionPerformed(ActionEvent e) {
 
-
+        // moving if game is not over yet and stopping the movement if game is over
         if (playingGame) {
             move();
         }
 
-
+        // checking the collision of apple with the head of the snake and increase the length of the snake
         if (checkApple()) {
             snkLength++;
             newApple();
@@ -290,7 +299,10 @@ public class Panel extends JPanel implements KeyListener, ActionListener {
             playingGame = false;
         }
 
-
+        // Recoloring all colors of the body parts of the snake if color variable in Frame.java class is set to null.
+        if(new Frame(7).bodyColor==null){
+            snkDimensions=chCol(snkDimensions);
+        }
 
         repaint();
 
