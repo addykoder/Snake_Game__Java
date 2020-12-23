@@ -2,10 +2,13 @@ package com.ProDuctive;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 
-public class Frame extends JFrame {
+public class Frame extends JFrame implements KeyListener {
     // Variables
-    Dimension ScreenDimension = new Dimension(1000, 1000);
+    Dimension ScreenDimension = new Dimension(600, 600);
 
     // must be a factor of the screen width and height otherwise it may lead to bugs
     int UnitSize = 50;
@@ -26,15 +29,36 @@ public class Frame extends JFrame {
         setTitle("Snake");
         setResizable(false);
         setSize(ScreenDimension);
-
+        addKeyListener(this);
         this.add(new Panel());
 
         setVisible(true);
+
+
     }
 
     //just created to get the global variables of this class in the Panel class
     Frame(int rndm) {
+    }
+
+
+
+    // closing and reopening the window if pressed the retry key
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if(e.getKeyCode()==KeyEvent.VK_R){
+            new Frame();
+            dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        }
 
     }
 
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
 }
